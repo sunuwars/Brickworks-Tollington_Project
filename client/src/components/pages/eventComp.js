@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const EventComp = ({ event_id, event_name, event_description, event_date_time, event_location, fullname_event_organiser,
-  email_event_organiser, telephone_event_organiser, recurring_event_description }) => {
+  email_event_organiser, telephone_event_organiser, event_time_duration, recurring_event_description }) => {
 
 
   return (
@@ -14,8 +14,9 @@ const EventComp = ({ event_id, event_name, event_description, event_date_time, e
 
         {/* <li>{event_description}</li> */}
         <li className="social-action-li">{event_date_time}</li>
+        <li className="social-action-li">{event_time_duration}, {recurring_event_description}</li>
+
         <li className="social-action-li">{event_location}</li>
-        <li className="social-action-li">{recurring_event_description}</li>
         {/* <li>{fullname_event_organiser}</li>
         <li>{email_event_organiser}</li>
         <li>{telephone_event_organiser}</li> */}
@@ -81,12 +82,12 @@ const FormErrors = ({ formErrors }) =>
     })}
   </div>
 
-const UpcomingEvents = ({ allEvents }) => {
-  if (allEvents.length !== 0) {
+const UpcomingEvents = ({ upcomingEvents }) => {
+  if (upcomingEvents.length !== 0) {
     return (
       <React.Fragment>
         <h2 className="page-hTwo">Upcoming Events</h2>
-        {allEvents.map(event => (
+        {upcomingEvents.map(event => (
           <EventComp key={event.fields.event_id} {...event.fields} />
         ))}
       </React.Fragment>

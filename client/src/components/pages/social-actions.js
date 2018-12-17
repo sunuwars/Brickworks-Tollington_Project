@@ -1,23 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import getAllEvents from '../utils/utilsgetAllEvent';
+import getUpcomingEvents from '../utils/getUpcomingEvents';
 import getPastEvents from '../utils/utilsgetPastEvent';
 import {EventComp, UpcomingEvents, PastEvents} from './eventComp';
 import logoImg from '../../../public/images/Brickworks-logo-small.png';
 
 class SocialActions extends React.Component {
-  
-  // constructor(props){
-  //   super(props)
-  //   this.state = {
-  //     allEvents : [],
-  //     pastEvents : [],
-  //     allEvntLoading : true,
-  //     pastEvntLoading: true,
-  //   }
-  // }
+ 
 state = {
-  allEvents : [],
+  upcomingEvents : [],
   pastEvents : [],
   allEvntLoading : true,
   pastEvntLoading: true,
@@ -25,12 +16,12 @@ state = {
 
   componentDidMount() {
     
-    getAllEvents()
+    getUpcomingEvents()
     .then(response => {
-      //set allEvents state
-      this.setState( { allEvents: response, allEvntLoading: false});
+      //set upcomingEvents state
+      this.setState( { upcomingEvents: response, allEvntLoading: false});
       //pass data to parent
-      this.props.extractData(this.state.allEvents);
+      this.props.extractData(this.state.upcomingEvents);
     })
     
     .catch(err => console.log(err));
@@ -63,7 +54,7 @@ state = {
       
     } 
    
-    const {allEvents} = this.state;
+    const {upcomingEvents} = this.state;
     const {pastEvents} = this.state;
 
     return (
@@ -76,7 +67,7 @@ state = {
       <div className="page-div">
       <h1 className="page-heading">Social Actions</h1> 
       
-    <UpcomingEvents allEvents={this.state.allEvents} />
+    <UpcomingEvents upcomingEvents={this.state.upcomingEvents} />
 
     <PastEvents pastEvents={this.state.pastEvents}/>    
             

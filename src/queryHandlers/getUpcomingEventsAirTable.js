@@ -15,13 +15,13 @@ exports.get = (request, response) => {
   }).eachPage((records, fetchNextPage) => {
     allRecords = [...allRecords, ...records];
 
-    console.log('get all events airtable at queries length=', allRecords.length)
+    // console.log('get all events airtable at queries length=', allRecords.length)
     // allRecords.forEach((record) => {
     //   console.log(record);
     // });
 
     allRecords = allRecords.map(record => {
-      console.log('SANGITA RECORDS=',record.fields);
+      // console.log('SANGITA RECORDS=',record.fields);
       let reqdDate = record.fields.event_date_time.split('T')[0];
       let reqdTime = record.fields.event_date_time.split('T')[1];
       // reqdTime = reqdTime.split(':');

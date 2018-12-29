@@ -193,8 +193,26 @@ h1.page-heading{
 }
 .page-div {
   width:70%;
-  /* border:1px solid green; */
+  border:1px solid blue;
   margin:0 auto;
+}
+.page-left-main {
+  border:1px solid blue;
+  width:60%;
+  display:inline-block;
+  
+}
+#list-social-action {
+  border:1px solid green;
+  width: 100%;
+  margin:0;
+}
+.social-media-feed{
+  border:1px solid red;
+  width:29%;
+  display:inline-block;
+  position: absolute;
+  
 }
 /* h2.page-hTwo{ */
   .page-hTwo{

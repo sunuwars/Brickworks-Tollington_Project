@@ -12,6 +12,7 @@ Artemis Gause
 
 # Description
 An MVP built for promoting Brickworks, in the Tollington area, London, as a social-action hub for the local community.  Anyone can have life experiences, knowledge, skills which if given an accessible platform can empower people to give, care, collaborate, form a social action and help community.
+
 The aim of this app is to empower people to build their community, to give, and to solve their problems.
 
 ### Graphics credits

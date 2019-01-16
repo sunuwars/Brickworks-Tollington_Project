@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logoImg from '../../../public/images/Brickworks-logo-small.png';
 
 
-const TopTen= () => (
+const startASocialAction= () => (
     <div data-testid="topten-page" className='wrapper'>
         <h1 data-testid="topten-page"id="head-h1"><img id='logo-small' src={logoImg} alt='Brickworks logo'/></h1>
         <div className="page-div">
@@ -47,7 +47,7 @@ const TopTen= () => (
 
         <div>
             <label htmlFor="all-events">
-            <Link to='/contactUs'><p className='link'>Click here to register your interest to start a social action!</p></Link>
+            <Link to='/contact-us'><p className='link'>Click here to register your interest to start a social action!</p></Link>
             </label>
             <p>I am already carrying out a social action, I want to collaborate with others to build it further</p>
             <label htmlFor="list-event">
@@ -59,4 +59,4 @@ const TopTen= () => (
     </div>
 )
 
-export {TopTen};
+export {startASocialAction};

@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import getUpcomingEvents from '../utils/getUpcomingEvents';
+import getTwitterTimeLine from '../utils/getTwitterTimeLine';
 import getPastEvents from '../utils/utilsgetPastEvent';
-import {EventComp, UpcomingEvents, PastEvents} from './eventComp';
+import {EventComp, UpcomingEvents, PastEvents, TwitterTimeLine} from './eventComp';
 import logoImg from '../../../public/images/Brickworks-logo-small.png';
 
 class SocialActions extends React.Component {
@@ -12,6 +13,7 @@ state = {
   pastEvents : [],
   allEvntLoading : true,
   pastEvntLoading: true,
+  twitterTimeLine: {}
 }
 
   componentDidMount() {
@@ -45,7 +47,12 @@ state = {
 //     console.log("Follow button created.")
 //   });
     
-  
+    getTwitterTimeLine()
+    .then(response => {
+      this.setState( {twitterTimeLine: response});
+    } )
+    .catch(err => console.log(err));
+
     getUpcomingEvents()
     .then(response => {
       //set upcomingEvents state
@@ -53,7 +60,6 @@ state = {
       //pass data to parent
       this.props.extractData(this.state.upcomingEvents);
     })
-    
     .catch(err => console.log(err));
 
     getPastEvents()
@@ -62,9 +68,10 @@ state = {
     this.setState( { pastEvents : response, pastEvntLoading:false});
     this.props.extractData(this.state.pastEvents);
     
-  })
+    })
+    .catch(err => console.log(err));
 
-  .catch(err => console.log(err));
+
   }
   
   startSocialAction = () => {
@@ -83,10 +90,17 @@ state = {
       )
       
     } 
-   
+    // if api call to get twitterTimeLine is not finished 
+    // if (Object.keys(this.state.twitterTimeLine).length === 0 && this.state.twitterTimeLine.constructor === Object ) {
+    //   return (
+    //     <h3>LOADING...</h3>
+    //   )
+    // }
     const {upcomingEvents} = this.state;
     const {pastEvents} = this.state;
-    const statusId = '1075698388367228928';
+    // const statusId = '1075698388367228928';
+    const {twitterTimeLine} = this.state;
+    console.log("twitterTimeLine here=", twitterTimeLine)
     return (
       
       <React.Fragment>
@@ -102,7 +116,9 @@ state = {
             
             <UpcomingEvents upcomingEvents={this.state.upcomingEvents} />
 
-            <PastEvents pastEvents={this.state.pastEvents}/>    
+            <PastEvents pastEvents={this.state.pastEvents}/>   
+
+            
                   
             <button className='button-large' onClick={this.startSocialAction}>Start a social action</button>
           </div>
@@ -111,12 +127,13 @@ state = {
         
           <a href="https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fsocial-action.herokuapp.com%2F&ref_src=twsrc%5Etfw&screen_name=SSunuwar5&tw_p=followbutton" className="twitter-follow-button" data-show-count="false">Follow @SSunuwar5</a>
 
-          
+          {/* <TwitterTimeLine twitterTimeLine= {this.state.twitterTimeLine} />  */}
+          <TwitterTimeLine twitterTimeLine= {twitterTimeLine} /> 
 
           
           </div>
            
-           <a className="makeThisClass" href={"https://twitter.com/SSunuwar5/status/" + statusId+ '?ref_src=twsrc%5Etfw' } >hello world</a>
+           
 
           {/* <blockquote className="twitter-tweet"><p lang="en" dir="ltr">hello world</p>&mdash; S Sunuwar (@SSunuwar5) <a href="https://twitter.com/SSunuwar5/status/1074749693337452544?ref_src=twsrc%5Etfw">December 17, 2018</a></blockquote> */}
           

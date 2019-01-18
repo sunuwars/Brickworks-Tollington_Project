@@ -1,6 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const Tweet = ({id_str, text, date}) => {
+  return (
+      <li>
+        <a href={"https://twitter.com/SSunuwar5/status/" + id_str+ '?ref_src=twsrc%5Etfw' }>{text}</a> 
+        
+      </li>
+
+  )
+}
+
 const EventComp = ({ event_id, event_name, event_description, event_date_time, event_location, fullname_event_organiser,
   email_event_organiser, telephone_event_organiser, event_time_duration, recurring_event_description }) => {
 
@@ -82,6 +92,19 @@ const FormErrors = ({ formErrors }) =>
     })}
   </div>
 
+const TwitterTimeLine = ({twitterTimeLine}) => {
+    return (
+      <React.Fragment>
+                      
+        {twitterTimeLine.map( (event, index) => (
+          <ul>
+          <Tweet key={index}{...event} />
+          </ul>
+          ))}
+      </React.Fragment>
+    )
+  }
+
 const UpcomingEvents = ({ upcomingEvents }) => {
   if (upcomingEvents.length !== 0) {
     return (
@@ -113,4 +136,4 @@ const PastEvents = ({ pastEvents }) => {
   }
 }
 
-export { SingleEvent, FormErrors, EventComp, EventByThemeComp, UpcomingEvents, PastEvents };
+export { SingleEvent, FormErrors, EventComp, EventByThemeComp, UpcomingEvents, PastEvents, TwitterTimeLine, Tweet };

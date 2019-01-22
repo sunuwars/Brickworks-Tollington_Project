@@ -5,6 +5,8 @@ import getTwitterTimeLine from '../utils/getTwitterTimeLine';
 import getPastEvents from '../utils/utilsgetPastEvent';
 import {EventComp, UpcomingEvents, PastEvents, TwitterTimeLine} from './eventComp';
 import logoImg from '../../../public/images/Brickworks-logo-small.png';
+import twitterIconWhite from '../../../public/images/twitter-logo1.svg';
+import twitterIconBlue from '../../../public/images/twitter-logo.svg';
 
 class SocialActions extends React.Component {
  
@@ -17,35 +19,7 @@ state = {
 }
 
   componentDidMount() {
-    
-    // twttr.widgets.load(
-    //   document.getElementById("root")
-    // );
-//       window.twttr = (function(d, s, id) {
-//         var js, fjs = d.getElementsByTagName(s)[0],
-//           t = window.twttr || {};
-//         if (d.getElementById(id)) return t;
-//         js = d.createElement(s);
-//         js.id = id;
-//         js.src = "https://platform.twitter.com/widgets.js";
-//         fjs.parentNode.insertBefore(js, fjs);
-      
-//         t._e = [];
-//         t.ready = function(f) {
-//           t._e.push(f);
-//         };
-
-//   return t;
-// }(document, "script", "twitter-wjs"));
-
-// twttr.widgets.createFollowButton(
-//   'endform',
-//   document.getElementById('new-button'),
-//   {
-//     size: 'large'
-//   }).then(function (el) {
-//     console.log("Follow button created.")
-//   });
+  
     
     getTwitterTimeLine()
     .then(response => {
@@ -107,12 +81,14 @@ state = {
       <div className='wrapper'>
         <h1 data-testid="social-actions-page"id="head-h1"><img id='logo-small' src={logoImg} alt='Brickworks logo'/></h1>
       
-        
+        <h1 className="page-heading">Social Actions</h1>
         <div id="list-social-action"  >
           {/* <div className= "page-div page-left-main"> */}
+          <div id="table-row">
+
           <div className= "page-left-main">
           
-            <h1 className="page-heading">Social Actions</h1> 
+            
             
             <UpcomingEvents upcomingEvents={this.state.upcomingEvents} />
 
@@ -122,23 +98,27 @@ state = {
                   
             <button className='button-large' onClick={this.startSocialAction}>Start a social action</button>
           </div>
-          
-          <div className="social-media-feed">
-        
-          <a href="https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fsocial-action.herokuapp.com%2F&ref_src=twsrc%5Etfw&screen_name=SSunuwar5&tw_p=followbutton" className="twitter-follow-button" data-show-count="false">Follow @SSunuwar5</a>
 
-          {/* <TwitterTimeLine twitterTimeLine= {this.state.twitterTimeLine} />  */}
-          <TwitterTimeLine twitterTimeLine= {twitterTimeLine} /> 
+          <div className='social-media-feed'>
+            <div className='follow-container'>
+              <h4 ><img src={twitterIconBlue} alt="twitter icon"/> Follow on Twitter </h4>
+              <div className="follow-btn">
+                <a href="https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fsocial-action.herokuapp.com%2F&ref_src=twsrc%5Etfw&screen_name=SSunuwar5&tw_p=followbutton" className="twitter-follow-button" data-show-count="false"><img id="follow-twitter-icon"src={twitterIconWhite} alt="twitter icon"/><span id="white">  Follow @SSunuwar5  </span></a>
+              </div>
+            </div>
+            
+            <div className='tweets'>
+            <h4 ><img src={twitterIconBlue} alt="twitter icon"/>  Recent Tweets  </h4>
+              {/* <TwitterTimeLine twitterTimeLine= {this.state.twitterTimeLine} />  */}
+              <TwitterTimeLine twitterTimeLine= {twitterTimeLine} /> 
 
-          
+            </div>
+
+            
+           
           </div>
-           
-           
 
-          {/* <blockquote className="twitter-tweet"><p lang="en" dir="ltr">hello world</p>&mdash; S Sunuwar (@SSunuwar5) <a href="https://twitter.com/SSunuwar5/status/1074749693337452544?ref_src=twsrc%5Etfw">December 17, 2018</a></blockquote> */}
-          
-
-          
+          </div>
       </div>
     </div>
      </React.Fragment>

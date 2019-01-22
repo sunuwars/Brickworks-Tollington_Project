@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Tweet = ({id_str, text, date}) => {
+const Tweet = ({id_str, text, created_at}) => {
   return (
-      <li>
+    <React.Fragment>
+      <li id="tweet-text">
         <a href={"https://twitter.com/SSunuwar5/status/" + id_str+ '?ref_src=twsrc%5Etfw' }>{text}</a> 
         
       </li>
-
+     
+      <li> {created_at} </li>
+    </React.Fragment>
   )
 }
 
@@ -97,7 +100,7 @@ const TwitterTimeLine = ({twitterTimeLine}) => {
       <React.Fragment>
                       
         {twitterTimeLine.map( (event, index) => (
-          <ul>
+          <ul class='social-media-ul'>
           <Tweet key={index}{...event} />
           </ul>
           ))}
@@ -116,7 +119,13 @@ const UpcomingEvents = ({ upcomingEvents }) => {
       </React.Fragment>
     )
   } else {
-    return '';
+    // return '';
+    return (
+      <React.Fragment>
+        <h2 className="page-hTwo">Upcoming Events</h2>
+        <h4 class='coming-soon-h4'> coming soon, please come back again </h4>
+      </React.Fragment>
+    )
   }
 }
 
@@ -124,7 +133,7 @@ const PastEvents = ({ pastEvents }) => {
   if (pastEvents.length !== 0) {
     return (
       <React.Fragment>
-        <h2 className="page-hTwo">Past Events</h2>
+        <h2 className="page-hTwo" id="past-events-hTwo">Past Events</h2>
         {pastEvents.map(event => (
           <EventComp key={event.fields.event_id} {...event.fields} />
         ))}

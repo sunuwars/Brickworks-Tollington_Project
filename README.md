@@ -11,9 +11,14 @@ Harry Mead,
 Artemis Gause
 
 # Description
-An MVP built for promoting Brickworks, in the Tollington area, London, as a social-action hub for the local community.  Anyone can have life experiences, knowledge, skills which if given an accessible platform can empower people to give, care, collaborate, form a social action and help community.
+An MVP built for promoting Brickworks, in the Tollington area, London, as a social-action hub for the local community.  Anyone can have life experiences, knowledge, skills which if given an accessible platform can empower people to give, to collaborate, form a social action and help community.
 
-The aim of this app is to empower people to build their community, to give, and to solve their problems.
+The aim of this app is to empower people to build their community, to give, and to find solutions to their problems.
+
+This is my personal extension to our team project at Founders and Coders, London.
+Engaging people to find a solutions to their problems in a platform people would prefer/find easier to engage is a very important first step.
+I have implemented social media(twitter) feed on social actions page, which on clicking will take to that tweet in twitter and people can reply, collaborate, form an idea for social action.
+The twitter account is my own account created for traialing this app.
 
 ### Graphics credits
 Menu and back-arrow credits: https://www.flaticon.com/

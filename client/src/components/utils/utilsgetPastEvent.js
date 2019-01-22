@@ -4,7 +4,7 @@ const checkResponse = response => {
     return;
   }
   // response.forEach( (val) => console.log(val.fields));
-  console.log('response is response is ', response);
+  console.log('Past events response is response is ', response);
   return response.json();
 }
 // getAllEventsAirTable
@@ -17,7 +17,7 @@ export const getPastEvents = () => {
   return fetch(`/api/getPastEventsAirTable`)
   .then(checkResponse)
   .catch(err => {
-    throw new Error(`fetch getAllEvents failed ${err}`);
+    throw new Error(`fetch getPastEvents failed ${err}`);
   })
 }
 

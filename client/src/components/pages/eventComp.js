@@ -1,8 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const Tweet = ({id_str, text, created_at}) => {
+  return (
+    <React.Fragment>
+      <li id="tweet-text">
+        <a href={"https://twitter.com/SSunuwar5/status/" + id_str+ '?ref_src=twsrc%5Etfw' }>{text}</a> 
+        
+      </li>
+     
+      <li> {created_at} </li>
+    </React.Fragment>
+  )
+}
+
 const EventComp = ({ event_id, event_name, event_description, event_date_time, event_location, fullname_event_organiser,
-  email_event_organiser, telephone_event_organiser, recurring_event_description }) => {
+  email_event_organiser, telephone_event_organiser, event_time_duration, recurring_event_description }) => {
 
 
   return (
@@ -14,8 +27,9 @@ const EventComp = ({ event_id, event_name, event_description, event_date_time, e
 
         {/* <li>{event_description}</li> */}
         <li className="social-action-li">{event_date_time}</li>
+        <li className="social-action-li">{event_time_duration}, {recurring_event_description}</li>
+
         <li className="social-action-li">{event_location}</li>
-        <li className="social-action-li">{recurring_event_description}</li>
         {/* <li>{fullname_event_organiser}</li>
         <li>{email_event_organiser}</li>
         <li>{telephone_event_organiser}</li> */}
@@ -81,18 +95,37 @@ const FormErrors = ({ formErrors }) =>
     })}
   </div>
 
-const UpcomingEvents = ({ allEvents }) => {
-  if (allEvents.length !== 0) {
+const TwitterTimeLine = ({twitterTimeLine}) => {
+    return (
+      <React.Fragment>
+                      
+        {twitterTimeLine.map( (event, index) => (
+          <ul class='social-media-ul'>
+          <Tweet key={index}{...event} />
+          </ul>
+          ))}
+      </React.Fragment>
+    )
+  }
+
+const UpcomingEvents = ({ upcomingEvents }) => {
+  if (upcomingEvents.length !== 0) {
     return (
       <React.Fragment>
         <h2 className="page-hTwo">Upcoming Events</h2>
-        {allEvents.map(event => (
+        {upcomingEvents.map(event => (
           <EventComp key={event.fields.event_id} {...event.fields} />
         ))}
       </React.Fragment>
     )
   } else {
-    return '';
+    // return '';
+    return (
+      <React.Fragment>
+        <h2 className="page-hTwo">Upcoming Events</h2>
+        <h4 class='coming-soon-h4'> coming soon, please come back again </h4>
+      </React.Fragment>
+    )
   }
 }
 
@@ -100,7 +133,7 @@ const PastEvents = ({ pastEvents }) => {
   if (pastEvents.length !== 0) {
     return (
       <React.Fragment>
-        <h2 className="page-hTwo">Past Events</h2>
+        <h2 className="page-hTwo" id="past-events-hTwo">Past Events</h2>
         {pastEvents.map(event => (
           <EventComp key={event.fields.event_id} {...event.fields} />
         ))}
@@ -112,4 +145,4 @@ const PastEvents = ({ pastEvents }) => {
   }
 }
 
-export { SingleEvent, FormErrors, EventComp, EventByThemeComp, UpcomingEvents, PastEvents };
+export { SingleEvent, FormErrors, EventComp, EventByThemeComp, UpcomingEvents, PastEvents, TwitterTimeLine, Tweet };

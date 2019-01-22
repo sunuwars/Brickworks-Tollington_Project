@@ -7,7 +7,7 @@ exports.get = (request, response) => {
     filterByFormula:' IS_BEFORE({event_date_time}, TODAY())',
     sort:[{field:'event_date_time', direction:'desc'}],
     fields: [
-      'event_id', 'event_name', 'event_description', 'event_location', 'event_date_time', 'recurring_event_description', 'categories', 'fullname_event_organiser', 'email_event_organiser', 'telephone_event_organiser'
+      'event_id', 'event_name', 'event_description', 'event_location', 'event_date_time', 'event_time_duration', 'recurring_event_description', 'categories', 'fullname_event_organiser', 'email_event_organiser', 'telephone_event_organiser'
     ]  
   }).eachPage((records, fetchNextPage) => {
     allRecords = [...allRecords, ...records];
@@ -17,9 +17,10 @@ exports.get = (request, response) => {
       // console.log(record.fields);
       let reqdDate = record.fields.event_date_time.split('T')[0];
       let reqdTime = record.fields.event_date_time.split('T')[1];
-      reqdTime = reqdTime.split(':');
-      let finalTime = reqdTime[0] + ':' + reqdTime[1];
-      record.fields.event_date_time = reqdDate + ' ' + finalTime; 
+      // reqdTime = reqdTime.split(':');
+      // let finalTime = reqdTime[0] + ':' + reqdTime[1];
+      // record.fields.event_date_time = reqdDate + ' ' + finalTime; 
+      record.fields.event_date_time = reqdDate;
       record.fields.event_name = record.fields.event_name + record.id;
       return record;
     })

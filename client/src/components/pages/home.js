@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import logoImg from '../../../public/images/Brickworks-logo1.png';
 
 class Home extends React.Component {
@@ -11,7 +10,10 @@ class Home extends React.Component {
   }
   }
   
- 
+  addEvent = () => {
+    this.props.history.push('/social-actions');
+  }
+
   render() {
     return( 
       <div>
@@ -28,9 +30,7 @@ class Home extends React.Component {
             Find out more and get involved!
             </p> 
             {/* <p className='hub-description-three'>Brickworks supports local people to contribute to collective action to build the community and create a better society.</p> */}
-            <Link to='/social-actions'>
-            <button className='button-large' style={{padding:'15px 40px'}} >Next</button>
-            </Link>
+            <button className='button-large' style={{padding:'15px 40px'}} onClick={this.addEvent}>Next</button>
           </main>
         </div>
       </div>

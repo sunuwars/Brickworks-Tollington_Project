@@ -193,113 +193,21 @@ h1.page-heading{
 }
 .page-div {
   width:70%;
-  border:1px solid blue;
-  margin:0 auto;
-}
-.page-left-main {
-  /* border:1px solid blue; */
-  width:60%;
-  display:table-cell;
-  
-}
-#list-social-action {
   /* border:1px solid green; */
-  width: 100%;
-  margin:0;
-  display:table;
-}
-#table-row {
-  display: table-row;
-}
-.social-media-feed{
-  /* border:1px solid red; */
-  width:25%;
-  display: table-cell;
-  padding-right: 3em;
-}
-.social-media-ul {
-  list-style: none;
-  padding-inline-start: 0;
-}
-
-.social-media-feed li, .social-media-feed li a{
-  /* color:white; */
-  font-size: 1.1em;
-  /* color: #004c7b; */
-  color: #3299CC;
-}
-
-#white{
-  color:white;
-}
-.tweets{
-  /* background-color: #004c7b; */
-  background-color: #F0F8FF	;
-  margin-top: 3em;
-}
-.follow-container{
-  /* border:1px solid pink; */
-  padding-bottom: 1.1em;
-  /* background-color: #004c7b; */
-  /* background-color: #00688B; */
-  color:white;
-  text-align:center;
-  width: 80%;
-  margin: auto;
-  background-color: #F0F8FF;
-}
-.follow-container h3{
-  color: white;
-}
-.social-media-feed h4 {
-  /* color: white; */
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.2em;
-  text-align: center;
-  padding: 5px;
-}
-.tweets h4 {
-  font-weight: bold;
-  padding-top: 1em;
-}
-#tweet-text {
-  margin-bottom:.2em;
-}
-.follow-container img{
-  width: 25px;
-}
-.follow-btn{
-  border:1px solid black;
-  width: 170px;
-  padding: 15px 20px;
-  margin: auto;
-  background-color: #3299CC;
-}
-#follow-twitter-icon{
-  width: 15px;
+  margin:0 auto;
 }
 /* h2.page-hTwo{ */
   .page-hTwo{
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   font-size:2em;
-  /* color: #585858; */
-  color: #202020;
-  /* text-align:center;  */
-  margin-left:2em;
-}
-#past-events-hTwo{
-  padding-top: 1em;
+  color: #585858;
+  text-align:center; 
 }
 .top-ten-h2{
   font-weight: 500;
   font-style: italic;
   font-size: 1.5em;
-}
-.coming-soon-h4{
-  /* text-align: center; */
-  color: #202020;
-  margin-left: 3em;
 }
 /* h2 {
   font-family: 'Nunito', sans-serif;

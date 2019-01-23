@@ -1,11 +1,12 @@
 const express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-var getAllEventsAirTable = require('./queryHandlers/getAllEventsAirTable');
+var getUpcomingEventsAirTable = require('./queryHandlers/getUpcomingEventsAirTable');
 var contactUs = require('./queryHandlers/contactUs');
 var getPastEventsAirTable = require('./queryHandlers/getPastEventsAirTable');
 var queryARecord = require('./queryHandlers/queryARecord');
 const app = express();
+const getTwitterTimeLine = require('./queryHandlers/getTwitterTimeLine')
 
 
 app.use(bodyParser.urlencoded({
@@ -19,9 +20,11 @@ app.use(express.static(path.join(__dirname, '..', 'dist')));
 // if (process.env.NODE_ENV === 'production') {
 //     app.use(express.static(path.join(__dirname, ' ')))
 // }
+app.get('/api/getTwitterTimeLine', getTwitterTimeLine.get );
 
-app.get('/api/getAllEventsAirTable', getAllEventsAirTable.get);
+app.get('/api/getUpcomingEventsAirTable', getUpcomingEventsAirTable.get);
 app.get('/api/getPastEventsAirTable', getPastEventsAirTable.get);
+
 app.post('/api/queryARecord', (req, res)=> {
     // console.log(Object.keys(req.body)[0])
     queryARecord('social_action_events', JSON.parse(Object.keys(req.body)[0]))

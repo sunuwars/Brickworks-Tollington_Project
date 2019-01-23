@@ -36,7 +36,7 @@ toggleMenu = () => {
         <Link className='nav-link' data-testid="social-actions" onClick={this.toggleMenu} to='/social-actions'>Social Actions</Link>
       </label>
       <label htmlFor="form">
-        <Link className='nav-link' data-testid="form" onClick={this.toggleMenu} to='/start-a-social-action'>Start a Social Action</Link>
+        <Link className='nav-link' data-testid="form" onClick={this.toggleMenu} to='/topten'>Start a Social Action</Link>
       </label>
       <label htmlFor="projects">
         <Link className='nav-link' data-testid="projects-page" onClick={this.toggleMenu} to='/projects'>Projects</Link>

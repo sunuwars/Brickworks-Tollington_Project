@@ -13,19 +13,19 @@
 //     res.forEach((val) => console.log(val.fields));
 //   })
 //   .catch(err => console.log(err)); 
-export const getUpcomingEvents = () => {
+export const getAllEvents = () => {
   console.log('INSIDE UTILS222');
-  return fetch(`/api/getUpcomingEventsAirTable`)
+  return fetch(`/api/getAllEventsAirTable`)
   .then(checkResponse)
   .catch(err => {
-    throw new Error(`fetch getUpcomingEvents failed ${err}`);
+    throw new Error(`fetch getAllEvents failed ${err}`);
   })
 }
 
-// getUpcomingEventsAirTable
+// getAllEventsAirTable
 //   .then(res => { //res is an array of objects
 //     res.forEach((val) => console.log(val.fields));
 //   })
 //   .catch(err => console.log(err)); 
 
-export default getUpcomingEvents;
+export default getAllEvents;

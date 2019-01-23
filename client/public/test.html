@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>hello Sangita</h3>
+
+ <script>
+// (function () {
+// var xhr = new XMLHttpRequest();
+// var url = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC";
+// console.log('hello world')
+// console.log('url=',url)
+// console.log('xhr=',xhr)
+// onreadystatechange = function() { console.log('hi')
+//   if(xhr.readyState ==4 && xhr.status == 200) {
+//     console.log('here=',xhr.responseText)
+//   }
+// }
+// xhr.open('GET', url, true);
+// xhr.send();
+// } ) ();
+
+(function () {
+  var xhr = new XMLHttpRequest();
+  var url = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC";
+  console.log('hereee111')
+  onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+          console.log('hereee')
+        // var giphyObj = xhr.responseText;
+        // var gifDrop = document.querySelector(".gif");
+        // var link = giphyObj.data[1].images.downsized_medium.url;
+        // gifDrop.src = link;
+      }
+  };
+  xhr.open("GET", url, true);
+  xhr.send();
+})();
+</script>   
+</body>
+</html>

@@ -15,34 +15,34 @@ const startASocialAction= () => (
             <br/>
             Here are our top 10 tips to get you started.</h2>
            <ul className='social-action-ul top-ten-tip-ul' >
-               <li className="social-action-li">
+               <li className="social-action-li start-a-social-action">
                Identify a problem, challenge or issue in your neighbourhood and be specific about what you want to tackle.
                </li >
-               <li className="social-action-li">
+               <li className="social-action-li start-a-social-action">
                 Do some research so that you have a good picture of the current situation, then develop and plan how to go about tackling the problem.
                 </li>
-                <li className="social-action-li">
+                <li className="social-action-li start-a-social-action">
                 Get together with others to share your research and explore the problem and potential solutions.
                 </li>
-                <li className="social-action-li">
+                <li className="social-action-li start-a-social-action">
                 Build a wider, more diverse community of collaborators who support your aims.
                 </li>
-                <li className="social-action-li">
+                <li className="social-action-li start-a-social-action">
                 Collaborate with those who might not share your opinions or support your aims so that you can overcome objections and gain different perspectives.           
                 </li>
-                <li className="social-action-li">
+                <li className="social-action-li start-a-social-action">
                 Promote your social action in your community and through the media; create a video and post it on the Brickworks website.
                 </li>
-                <li className="social-action-li">
+                <li className="social-action-li start-a-social-action">
                 Take action!
                 </li>
-                <li className="social-action-li">
+                <li className="social-action-li start-a-social-action">
                 Evaluate, reflect and record the impact of your action on the community.
                 </li>
-                <li className="social-action-li">
+                <li className="social-action-li start-a-social-action">
                 Share the impact of your action in creative and imaginative ways to capture attention.
                 </li>
-                <li className="social-action-li">Don't give up, have patience and be committed.</li>
+                <li className="social-action-li start-a-social-action">Don't give up, have patience and be committed.</li>
            </ul>
 
         <div>

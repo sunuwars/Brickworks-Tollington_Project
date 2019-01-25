@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Tweet = ({id_str, text, created_at}) => {
+const Tweet = ({id_str, text, user}) => {
+  // con/st tweeted-ago = time-function( created_at)
   return (
     <React.Fragment>
-      <li id="tweet-text">
+      <li id="tweet-text"> <a href={'https://twitter.com/'+ user.screen_name}> <img src={user.profile_image_url_https} alt='user-profile-image' class='twitter-profile-img'/> </a>
         <a href={"https://twitter.com/SSunuwar5/status/" + id_str+ '?ref_src=twsrc%5Etfw' }>{text}</a> 
         
       </li>
      
-      <li> {created_at} </li>
+      <li id='tweet-by'> By <a href={'https://twitter.com/'+ user.screen_name}>{user.screen_name} </a></li>
     </React.Fragment>
   )
 }
@@ -23,7 +24,7 @@ const EventComp = ({ event_id, event_name, event_description, event_date_time, e
 
     <ul className='social-action-ul'>
       <Link key={event_id} to={'/event-detailed/' + event_name} >
-        <li className='li-style1'>{event_name.split('rec')[0]}</li>
+        <li className='li-style1 no-left-margin'>{event_name.split('rec')[0]}</li>
 
         {/* <li>{event_description}</li> */}
         <li className="social-action-li">{event_date_time}</li>
@@ -112,7 +113,7 @@ const UpcomingEvents = ({ upcomingEvents }) => {
   if (upcomingEvents.length !== 0) {
     return (
       <React.Fragment>
-        <h2 className="page-hTwo">Upcoming Events</h2>
+        <h2 className="page-hTwo page-hTwo-social-action" >Upcoming Events</h2>
         {upcomingEvents.map(event => (
           <EventComp key={event.fields.event_id} {...event.fields} />
         ))}
@@ -122,7 +123,7 @@ const UpcomingEvents = ({ upcomingEvents }) => {
     // return '';
     return (
       <React.Fragment>
-        <h2 className="page-hTwo">Upcoming Events</h2>
+        <h2 className="page-hTwo page-hTwo-social-action" >Upcoming Events</h2>
         <h4 class='coming-soon-h4'> coming soon, please come back again </h4>
       </React.Fragment>
     )
@@ -133,7 +134,7 @@ const PastEvents = ({ pastEvents }) => {
   if (pastEvents.length !== 0) {
     return (
       <React.Fragment>
-        <h2 className="page-hTwo" id="past-events-hTwo">Past Events</h2>
+        <h2 className="page-hTwo page-hTwo-social-action" id="past-events-hTwo">Past Events</h2>
         {pastEvents.map(event => (
           <EventComp key={event.fields.event_id} {...event.fields} />
         ))}

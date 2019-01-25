@@ -193,12 +193,12 @@ h1.page-heading{
 }
 .page-div {
   width:70%;
-  border:1px solid blue;
+  /* border:1px solid blue; */
   margin:0 auto;
 }
 .page-left-main {
-  /* border:1px solid blue; */
-  width:60%;
+  width: 40%;
+  padding-left: 1em;
   display:table-cell;
   
 }
@@ -215,11 +215,20 @@ h1.page-heading{
   /* border:1px solid red; */
   width:25%;
   display: table-cell;
-  padding-right: 3em;
+  padding-right: 5em;
 }
 .social-media-ul {
   list-style: none;
   padding-inline-start: 0;
+}
+/* #tweet-text>.twitter-profile-img{ */
+#tweet-text .twitter-profile-img{
+  width: 20px;
+  margin-right: .5em;
+}
+#tweet-by{
+  color: #484848;
+  font-size: 1em;
 }
 
 .social-media-feed li, .social-media-feed li a{
@@ -285,8 +294,11 @@ h1.page-heading{
   font-size:2em;
   /* color: #585858; */
   color: #202020;
-  /* text-align:center;  */
+  text-align:center; 
   margin-left:2em;
+}
+.page-hTwo-social-action{
+  text-align:left;
 }
 #past-events-hTwo{
   padding-top: 1em;
@@ -676,12 +688,31 @@ footer {
   background-color: white;
   color: slategray;
 }
+.start-a-social-action{
+  text-align:left;
+}
 
 /*----------------------------------------------*/
 
 /*MEDIA QUERIES*/
 
 @media only screen and (max-width: 768px) {
+  .page-left-main {
+    display:table-row;
+  }
+.social-media-feed {
+  display: table-row;
+}
+#table-row{
+  display: table-row-group;
+}
+.follow-container{
+  width: 70%;
+}
+.tweets{
+  width: 95%;
+  margin: auto;
+}
   h1.page-heading{
     font-size:2em
   }
@@ -696,6 +727,10 @@ footer {
   /* h2.page-hTwo { */
     .page-hTwo{
     font-size:1.6em;
+  }
+  .page-hTwo-social-action{
+    text-align:center;
+    margin-left:0;
   }
   .top-ten-h2{
     font-size: 1.3em;
@@ -714,16 +749,23 @@ footer {
   }
   ul.social-action-ul{
     margin-block-end: 1.5em;
+    text-align: center;
   }
   
   .social-action-li{
     font-size:1.15em;
     margin-bottom: .5em;
-    margin-left:1em;
+    /* margin-left:1em; */
+    margin-left: 0;
   }
+  
   .li-style1{
     margin-bottom: .5em;
-    margin-left:1em;
+    /* margin-left:1em; */
+    margin-left:0;
+  }
+  no-left-margin{
+    margin-left:0;
   }
   form{
     width:90%;

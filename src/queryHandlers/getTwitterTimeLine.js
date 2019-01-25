@@ -10,16 +10,14 @@ const client = new Twitter({ consumer_key: process.env.consumer_key ,
                     
 exports.get = (req, res) => {
     client.get( 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=SSunuwar5&count=5', function(err, data, response) {
-    console.log('hello world')
     if(err) throw err;
     res.send(data);
     data.map((val) => {
-        // console.log('val=', val)
+        console.log('VAL=', val)
         console.log('tweet_status_id=',val);
     })
     // console.log('data=',data);
     // console.log('response=', response)
     })
 }
-//////////////
 
